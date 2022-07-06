@@ -1,11 +1,12 @@
 package com.balthazargronon.RCTZeroconf;
 
+import android.text.TextUtils;
+
 import com.balthazargronon.RCTZeroconf.nsd.NsdServiceImpl;
 import com.balthazargronon.RCTZeroconf.rx2dnssd.DnssdImpl;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
 
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +26,7 @@ public class ZeroConfImplFactory {
     }
 
     public Zeroconf getZeroconf(String implType) {
-        if (StringUtils.isBlank(implType)) implType = ZeroConfImplFactory.NSD_IMPL;
+        if (TextUtils.isEmpty(implType)) implType = ZeroConfImplFactory.NSD_IMPL;
         return getOrCreateImpl(implType);
     }
 
